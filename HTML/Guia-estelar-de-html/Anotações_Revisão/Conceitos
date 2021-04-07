@@ -1,0 +1,71 @@
+CONCEITOS:
+----Anatomia das tags----
+Abertura: <h1>
+Fechamento: </h1>
+Conteúdo: "O Título"
+Elementos: <h1>"O Título"</h1>
+
+Elementos vazios: <img src="" alt=""> (não tem um fechamento igual dos outros)
+
+----Atributos-----
+=informações extras
+=configuração
+
+Anatomia dos atributos: nome do atributo + sinal de igual + aspas duplas
+-dentro das aspas que irá o conteúdo
+ex: <img src="" alt="">
+
+Atributos boolenaos não precisam de conteúdo:
+<input tyoe="text" disabled> (disabled atributo booleano)
+
+
+----Atributos Globais----
+(mais utilizados)
+- class: organização, ascecibilidade, 
+- contenteditable: se o valor for true 
+é possível alterar o conteúdo na página html  
+- data-*: ampliar as possibilidades de edição com css ou javascript  
+- hidden: esconde o conteúdo
+- id: não pode ter nomes iguais, se for para repetir nome do usa-se o atributo class
+- style: poder aterar estilos dentro do próprio html    
+- tabindex: para quando for navegar na página usando tab ele seguirá a ordem númerica proposta
+- title: meio para organização também
+
+----Aninhamento de tags----
+Dentro do html há uma hieraquia, uma tag aberta dentro de outra tag é filho da tag que esta dentro
+ex:
+<div>
+    <p>Conteúdo</p>
+</div>
+=<div> tag pai
+=<p> tag filha da <div>
+
+O fluxo: cada tag é lida na ordem em que aparece
+Algumas tags:
+<em></em> enfâse no conteúdo dela
+<div></div> tag para agrupar elementos
+<br> break bai quebrar a linha (util se vc quer quebrar linha mas a sua tag é em linha)
+
+----Conteúdo do texto e caracteres reservados----
+Alguns caracteres são reservados pelo motivo da utilidade deles dentro do html ex:
+<br> quebra linha 
+&nbsp serve para dar espaço
+&lt (lower than reproduz esse caracter "<")
+&gt (grower than reproduz esse caracter ">")
+&quot (")
+&apos (')
+
+----Anatomia de um documento HTML---
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+OBS: todo essa parte do código pode ser reproduzida clicando "!" no vscode e dando enter

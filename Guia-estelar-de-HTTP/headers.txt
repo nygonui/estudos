@@ -1,0 +1,42 @@
+Headers
+1 - O que são Headers?
+ . Cabeçalhos
+ . Informações adicionais para o pedido ou resposta
+ . Nome: valor
+	. content-type: application-json
+	. Content-Type: text/html
+
+2 - Headers por contexto:
+ . General
+ . Request Headers
+ . Resnponse Headers
+
+3 - General
+ . O cabeçalho general serve tanto para request quanto response, contém 
+ informações reduzidas
+
+4 - Request headers
+	accept: valor, valor, valor
+	accept-econding(comprimindo alguma info, usando zip, chrome que faz)
+	cookie: rastros que o servidor deixa, detalhes que queremos usar na próxima conexão
+
+5 - Response headers
+	set-cookies: rastros de informações que ele quer usar na próxima conexão
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

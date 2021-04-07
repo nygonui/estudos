@@ -1,0 +1,37 @@
+<!--
+    <video>
+
+    - src
+    - controls = Os usuários devem podeder controlar a reprodução de vídeo e áudio
+    este atributo serve para incluir a interface de controle
+    - se não funcionar ?
+        - fallback content (mensagem avisando que não funciononou )
+    - source
+        - src
+        - type
+    
+        - sobre serviços de terceiros
+            youtube e outros, é mais fácilde usar
+            não vai sobrecarregar o servidor toda vez que 
+            apertarem o play teria de baixar o vídeo
+            usando um link do youtube torna o processo mais fácil
+
+    Ver: https://www.developer.mozilla.org/pt-BR/docs/Web/Media/Formats
+
+    .atributo autoplay, teoricamente o video tocaria assim que entrasse na página mas alguns browser não permitem a não ser que tenha o atributo mute
+    
+    .atributo preload valores:
+        ="auto": começa a carregar antes de apertar o play  
+        ="metadata": carrega apenas o necessário
+        ="none": não vai fazer preload de nada
+    . atributo loop: (depende do navegador)
+        quando o vídeo acabar ele irá reiniciar do início
+    .atributo muted: o vídeo fica mudo até o usuário apertar para ativar o som
+    .atributo poster: 
+        coloca uma imagem de capa do vídeo
+-->
+
+<video controls width="300" height="400" autoplay preload="auto" loop muted poster="./someway.png">
+    <source scr="./algumcaminho.mp4" type="video.mp4">
+    <p>Este browser não suporta vídeo, baixe aqui <a src="./algumcaminho/"></a></p>
+</video>

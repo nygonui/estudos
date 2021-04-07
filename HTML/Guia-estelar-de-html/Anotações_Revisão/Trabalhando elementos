@@ -1,0 +1,101 @@
+TRABLHANDO ELEMENTOS:
+----Semântica----
+Dar significado
+Elementos semânticos
+
+----Títulos e parágrafos----
+<h1> <h2> <h3> <h4> <h5> <h6>
+	As tags <hx> são tags com formatação de título.
+	Geralmente usamos apenas um h1 por página
+<p> tag para parágrafo
+
+----Listas----
+.ordenadas
+.não ordenadas
+
+<ol></ol> para listas ordenadas
+<u></ul> para listas não ordenadas
+<li><li> para as linhas das listas 
+
+ex de lista ordenada:
+<ol>
+	<li>Conteúdo1</li>
+	<li>COnteúdo2</li>
+	<li>Conteúdo3</li>
+</ol>
+OBS:para fazer uma lista não ordenada é apenas trocar a tag <ol> por <ul>
+
+----Citações----
+Serve para acessibilidade e para os motores de busca identificarem melhor a sua página da web
+devido a sua semântica.
+
+)))<blockquote>
+ex:
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+    O <strong>Elemento HTML <code>&lt;blockquote&gt;</code> </strong> (ou <em>HTML Block Quotation Element</em>) Indica que um texto externo foi citado.
+</blockquote>
+
+)))<cite>
+ex:
+<p>De acordo com <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><cite>página MDN blockquote</cite></a>: 
+</p>
+
+)))<q>
+ex:
+<p>O elemento quote -- <code>&lt;q&lt;</code>-- é<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote/q">usado para citações curtas que não precisam de parágrafos ou quebras de linha.</q>--<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><cite>MDN q page</cite></a>.</p>
+
+----Abreviações----
+<abbr> 
+-esta tag abrevia porém passando o cursor por cima ela mostra o atributo title que você coloca
+ex:
+<p>Usamos <abbr title="HyperText Markup Laguage">HTML</abbr> para estruturar nossos documentos na web</p>
+
+----Detalhes de contato----
+<address> - tag usada normalmente para mostrar o contato de quem fez a página
+ex:
+<address>
+	<p>Nicolas Souza</p>
+	<strong>São Paulo, SP</strong>
+</address>
+
+----Listas de descrição---- 
+-para fazer isso:
+Macaco
+	Animal selvagem
+-faça isso:
+<dl>
+	<dt>Macaco</dt>
+	<dd>Animal Selvagem</dd>
+</dl>
+
+----Representando códigos de computador----
+<code>
+	partes genéricas de códigos
+</code>
+
+<pre>
+	Blocos de código, pois essa tag mantém os espaços em 
+	branco e recuos que eu colocar no meu código
+</pre>
+
+ex:
+<pre>
+	<code>
+		#include&lt;stdio.h&gt;
+
+		int main(){
+			printf("Hello World!\n");
+			return 0;
+		}
+	</code>
+</pre>
+
+----Elementos Genéricos----
+<div> = trabalha com ideia de blocos
+<span> = trabalha com ideias de linhas 
+Serve para organização da página e praticidade na hora do css
+ex:
+<div class="cart">
+	<span>Camiseta</span>
+	<span>R$ 99.00</span>
+</div>

@@ -1,0 +1,56 @@
+URI:
+1 - Resource:
+ . Conceito - Uniform Resource Identifier
+	. Identificar um Recurso
+	. Nome ou Localização
+	. Exemplo: Você é um recurso - Seu nome - Sua localização
+
+2 - Recurso:
+ . Resource: 
+	. O alvo do pedido
+	. Qualquer coisa identificável/Entidade
+		. Digital - e-mail - mailto:email@dominio.com
+		. Abstrata
+			. Sessão (colocar login e senha, inicia a sessão)
+			. Autenticação (antes de iniciar uma sessão precisa passar por uma autenticação)
+		. Física
+			. Produtos
+			. Usuários
+		. Se podemos identificar, nomear, endereçar ou manipular, 
+		estamos falando de um recurso
+
+3 - URL 
+. Locator --- URL 
+  . Uniform Resource Locator 
+  Toda URL é uma URI mas nem toda URI é uma URL, a URL é a URI identificado pela localização
+  . Componentes
+	. Obrigatórios
+		. Protocolo
+		. Domínio
+	. Opcionais
+		. Subdomínio
+		. Path
+		. Parametros
+		. Porta
+		. Âncora
+
+  . Exemplos:
+	. https://www.rocketseat.com.br/blog
+	. https://www.youtube.com/watch?v=vpYct2npKD8
+	. http://127.0.0.1:3333/index.html#algumlugar
+
+-protocolo: https , http
+-domínio: rocketeseat.com.br(nome), youtube.com(nome), 127.0.0.1:3333 (IP)
+-subdomínio: www.
+-path: /blog
+-parametros: ?v=vpYct2npKD8
+-porta: :3333
+-âncora: #algumlugar
+
+4 - URN 
+ . Name --- URN
+ Toda URN é uma URI, mas nem toda URI é URN, pois a URN é a URI usando o nome
+   . Uniform Resource Name
+   . Exemplos
+	. urn:isbn:0451450523
+	. urn:oasis:names:specification:docbook:dtd:xml:4.1.2

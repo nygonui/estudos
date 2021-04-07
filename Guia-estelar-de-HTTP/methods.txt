@@ -1,0 +1,225 @@
+Methods
+1 - intro 
+Servem para identificar o que vamos fazer qual operação queremos fazer
+numa determinada url e derteminado recurso
+
+2 - Methods
+ . Define um conjunto de métodos http
+ . indica a ação que o cliente quer operar
+ . Podem ser chamados de Verbos HTTP
+ . Cada um possui a sua semântica
+ . Características
+	. Seguro:
+		.Não altera o estado do servidor
+		.Somente leitura
+		.Cliente não solicita alterações 
+		.Não há carga extra no servidor
+		.O servidor é responsável em manter o método seguro
+		.Quais são?
+			.GET - GET/search.html HTTP/1.1
+			.HEAD
+			.OPTIONS
+	. Idempotente:
+		.Ao executar o método, a resposta deverá ser sempre a mesma 
+		.Quais são?
+			.Todos os seguros
+			.PUT
+			.DELETE
+		.Status code poderá ser diferente 
+		.O servidor tem a resposnabilidade de retornar dados 
+		da mesma maneira 
+		.Essa especificação não é garantia de que todos os 
+		servidores irão aplicar o conceito corretamente 
+IDEMPOTENCE
+when performing an operation again give the same result
+
+HTTP Method | Idempotence | Safety |
+------------------------------------
+GET	    |	YES	  |    YES |
+HEAD        |	YES       |    YES |
+PUT         |	YES       |    NO  |
+DELETE      |	YES       |    NO  |
+POST        |	NO        |    NO  |
+PATCH       |	NO        |    NO  |
+------------------------------------
+
+3 - JSON Server
+ - Instalando JSON na nossa máquina 
+1º tive que instalar o node.js para usar o npm
+2º segui os passos do github.com/typicode/json-server
+	os comandos no tutorial foram feitos no GIT Bash
+  .npm install -g json-server
+	-g: instalar de uma maneira global
+  . mkdir http-course
+	mkdir: cria um novo repositório
+	mkdir http-course: cria um novo diretório chamado http-course
+  . cd http-course
+	cd: entra no diretório selecionado
+  . vim db.json 
+	cria um arquivo chamado db.json (vim é um editor de texto)
+  . para sair do vim aperte "esc" escreva ":wq" + enter
+  . json-server --watch db.json 
+	para iniciar o servidor 
+
+4 - OPTIONS 
+ . informação sobre disponibilidade da requisição
+	. OPTIONS /index.html HTTP/1.1
+	. OPTIONS * HTTP/1.1
+ . Características
+	. Seguro: Sim
+	. Idempotente: Sim
+	. BODY:
+	    . Request: Não
+	    . Response: Não
+	. Uso em formulários HTML: Não
+	. Cacheable: Não (não guarda nenhum dado na memória)
+
+ . curl -X OPTIONS http://localhost:3000/posts
+	-X: define qual será o verbo(method) http que você vai querer
+    não vai aparecer nada pois o method OPTIONS não tem Body Request nem 
+    Body Response, mas se digitarmos:
+ . curl -X OPTIONS http://localhost:3000/posts -i
+	-i: irá fazer aparecer Header Response 
+ . O que irá importar no header para gente é os métodos permitidos de acesso 
+ Access-Control-Allow-Methods
+	Esse é um grande uso do method OPTIONS
+
+5 - GET 
+ . Pegar um recurso (to get = pegar)
+ . Somente recebe dados 
+ . Características
+	. Seguro: SIM
+	. Idempotente: SIM
+	. BODY
+	     . REQUEST: NÃO
+	     . RESPONSE: SIM
+	. Cacheable: SIM
+	. Uso de formulários HTML: SIM
+ . Comandos usados:
+ curl -v http://localhost/posts
+ curl -i http://localhost/posts
+ curl -I http://localhost/posts
+
+6 - HEAD 
+ . Semelhante ao GET, porém ...
+ . ...recebemos somente o cabeçalho 
+ . Características:
+	. Seguro: Sim
+	. Idempotente: Sim
+	. BODY:
+	    . Resquest: Não
+	    . Response: Não
+	. Usa em formulários HTML: Não
+	. Cacheable: Sim
+ . comando para usar o method http HEAD
+      curl -I http://seudominio
+          -I: ele mostra apenas o Header
+ . É possível ver o qual é o method no servidor que é o primeiro git bash aberto
+
+7 - POST
+ . Publicar/Cadastrar um Recurso
+ . Características
+	. Seguro: Não
+	   -pois ele faz alteração no back-end
+	. Idempotente: Não
+	  -se rodar a mesma rota novamente ele irá mudar os dados,
+	  pois está enviando um body diferente 
+ 	. BODY:
+		.Request
+		    - Ex: toda vez que é efetuado um cadastro ele envia como um
+		    body request para o servidor
+		. Response
+		   - depende de como você configurar, mas geralmente ele irá
+		   responder com um body
+	. Uso em formulários HTML: Sim
+	. Poderá ser cacheable
+
+ . comandos 
+	. curl -d '{objeto do tipo json}'
+		-d: data (dados)
+		objeto do tipo json: é o corpo do meu pedido
+	. cat db.json
+		para ver o que tem dentro do db.json
+	. ex: curl -d '{"id": 2, "title":jsons-server-2, "author": nicolas} -H "Content-type: 
+	application/json -X POST http://localhost:3000/posts
+		- a segunda parte é o cabeçalho o Header enviado para o servidor por isso o -H
+		- Content-type: é o tipo de conteúdo, no caso application/json
+		- -X POST: está falando que método será do tipo do POST 
+		- em seguida ta o caminho 
+	. no final com o comando cat db.json será possível vizualizar o novo objeto dentro do db.json	
+ 
+8 - PUT
+ . Cria um novo ou Atualiza um Recurso
+	. PUT/profile HTTP/1.1
+	. Diferença entre POST? 
+		- ele é Idempotente, se passarmos os mesmo caminho a resposta sempre será a mesma 
+	. Criação --- Status code 201 (criado o conteúdo)
+	. Atualização --- Status code 200(ok) ou 204 (tudo ok mas ñ tem conteúdo de volta)
+ . Características
+	. Seguro: não
+	. Idempotente: sim
+	. BODY:
+	   . Request: Sim
+	   . Response: Não
+	. Uso em formulários HTML: não
+	. Cacheable: Não
+ex de comando:
+	curl -d '{"name": "nicolas"}' -H 'Content-type: application/json 
+	-X PUT http://localhost:3000/profile
+
+9 - PATCH
+ . Modificação parcial de um recurso
+	. Diferença entre o PUT? O put (teoricamente) serve para alterar todo um dado
+	um exemplo, alterar todos os dados de um objeto, já o PATCH daria para alterar 
+	apenas o title desse objeto (mas na prática dá para alterar parcialmente com o PUT tbm)
+ 	. PATCH/posts/1 HTTP/1.1 
+ . Características
+	. Seguro: Não (pois altera dados)
+	. Idempotente: Não (Tem vez que sim)
+	. BODY
+	   . Request: SIM
+	   . Response: SIM
+	. Usa em formulários HTML: Não
+	. Cacheable: Não
+ . ex de comando:
+	curl -d '{"title": "my-title"}' -H 'Content-type: application/json' -X PATCH http://localhost:3000/posts/1
+		- o caminho passado depois do /posts o próximo caminho dentro do posts
+
+10 - DELETE
+ . Remover recursos
+	. DELETE/posts HTTP/1.1
+	. Status code:
+		. 202: Accepted
+		. 204: No content
+		. 200: OK
+ . Características
+	. Seguro: Não
+	. Idempotente: Sim
+	. BODY
+	   . Resquest: Possibilidade
+	   . Response: Possibilidade
+	. Uso em formulário HTML: Não
+	. Cacheable: Não
+ .Ex de comando
+	curl -X DELETE http://localhost:3000/posts/2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

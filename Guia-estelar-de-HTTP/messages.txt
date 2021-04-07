@@ -1,0 +1,51 @@
+Messages
+1 - Mensagens
+  . HTTP Messages - Para havera camunicação é necessário as mensagens
+	            tanto no Request quanto no Response
+  	. HTTP/1.1
+		. Legível
+		. Texto
+		
+	. HTTPS/2
+		. Estrutura binária (ilegivel)
+		. Otimização
+		. Mesma maneira que a versão 1.1
+
+2 - Request (pedido)
+  . Request Line para realizar um request é necessário :
+	. Method
+	. Protocol Version
+ 	. URI
+  . Body
+  . Headers
+Para ver os Request Headers no cURL digite 
+ curl -v https://www.dominio.com
+>...
+>...
+>...
+O method, protocol version e URI estarão nesses sinais a cima, mostrando saida de dados
+
+3 - Response 
+  . Protocol Version (ex: HTTP/2)
+  . Status code (ex: 200)
+  . Headers
+  . Status message (body)
+
+. no cURL para ver as response headers
+ curl -I https://www.google.com
+ curl -i https://www.google.com (mostra a response headers e response body) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

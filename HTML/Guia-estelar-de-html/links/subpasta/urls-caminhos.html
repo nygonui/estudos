@@ -1,0 +1,60 @@
+<!-- 
+    URLs e Caminhos dos arquivos
+
+    - Uniform Resource Locator
+        - https://www.rocketseat.com.br
+        - Sequência de texto que define onde algo está localizado na web
+    - URL usam caminhos para encontrar arquivos
+
+    - Caminhos dos arquivos
+        - Onde, no explorador de arquivos, um recurso está localizado
+-->
+
+<a href="hyperlinks.html">Abris Hyperlinks</a>
+<br>
+<a href="https://google.com">Abrir google</a>
+<br>
+<br>
+
+<!--
+    Da primeira forma não passamos um endereço na web, mas sim um endereço de um arquivo do nosso diretório
+    O segundo link é um endereço na web
+-->
+
+<!--
+    Como navegar pelos caminhos?
+
+    -mesmo diretório
+    -entrando em diretórios
+    -saindo de diretórios
+    -diretório raiz
+
+    ../kjaskjd.html -> os "../" significa que ele esta saindo de uma subpasta e indo para a pasta principal
+-->
+
+<a href="../hyperlinks.html">arquivo na pasta anterior</a>
+<br>
+<a href="./urls-caminhos.html">arquivo no diretório raiz</a>
+<br>
+<a href="urls-caminhos.html">arquivo na mesma pasta</a>
+<br>
+<a href="outros/conteudo-a-element.html">arquivo na pasta outros, que está na pasta anterior</a>
+<br>
+
+<!--
+    URLs absolutos versus relativos
+
+    - Absoolutos
+        - inclui protocolo e nome de domínio
+            - https://www.rocketseat.com.br/projeto/index.html
+        - sempre apontará para o meso local, pois é absoluto
+    
+    - Relativos
+        - relativo à página aberta no momento
+        -apontará para lugares diferentes
+-->
+
+<a href="google.com">relativo: ir p/ o google</a>
+<br>
+<!--O primeiro não funcionará pois se trata de um endereço web, e não um do mesmo diretório do documento-->
+<a href="https://google.com">absoluto: ir p. o google</a>
