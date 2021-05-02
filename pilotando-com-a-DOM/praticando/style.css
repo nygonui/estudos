@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to right, #ffff, rgb(221, 162, 255));
+    width: 100%;
+    height: 100%;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.call-to-action{
+    width: 200px;
+    padding: 10px;
+    background-color: rgb(159, 0, 252);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+
+    transition: 0.19s;
+}
+
+.call-to-action:hover{
+    padding: 15px;
+    
+    cursor: pointer;
+}
+
+.call-to-action h1 {
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 999;
+}
+
+.modal.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal div {
+    width: 300px;
+    height: 100px;
+    background-color: #ffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-family: sans-serif;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.modal div p {
+    color:rgb(83, 83, 83);
+}
